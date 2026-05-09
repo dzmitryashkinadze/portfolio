@@ -1,37 +1,51 @@
 import Image from "next/image";
-import Link from "next/link";
 
 interface ExperienceCard {
   id: number;
   title: string;
+  company: string;
+  location: string;
+  period: string;
   description: string;
-  icon: string;
+  highlight?: string;
 }
 
 const experienceCards: ExperienceCard[] = [
   {
     id: 1,
-    title: "WebHR - HR Management App",
-    description: "WebHR automates all of your company's HR processes such as Recruitment, Onboarding, Payroll, Time & Attendance, Leaves & PTO, Performance, and much more.",
-    icon: "/cards/card-1.png",
+    title: "Senior Data Science Consultant",
+    company: "BASE Life Science",
+    location: "Basel",
+    period: "01.2026 - present",
+    description: "Team coordination and development of the agentic GenAI platform structuring clinical trial protocols for a large pharmaceutical company",
+    highlight: "GenAI Platform Lead",
   },
   {
     id: 2,
-    title: "WebHR Kiosk - Time Clock Kiosk",
-    description: "WebHR Kiosk is a time clock kiosk that allows you to clock in and out of your work. It is a simple and easy to use app that allows you to clock in and out of your work.",
-    icon: "/cards/card-2.png",
+    title: "NLP Engineer",
+    company: "MDPI",
+    location: "Basel",
+    period: "07.2024 - 12.2025",
+    description: "Co-lead development of the big data pipeline that increased completeness by 10% for over 50M scientific profiles. Developed transformer-based spam detection (3x reduction) and ML model for name annotation (+8% accuracy). Rewrote external database dump processing pipeline in Rust achieving 1500x speedup (1 month → 30min)",
+    highlight: "Rust Pipeline: 1500x Speedup",
   },
   {
     id: 3,
-    title: "Somezing - AI-Powered Agents",
-    description: "Somezing is a AI-Powered Agents to Automate Your Workflows. It is a simple and easy to use app that allows you to automate your workflows.",
-    icon: "/cards/card-3.png",
+    title: "Data Scientist",
+    company: "Accenture",
+    location: "Zürich",
+    period: "05.2022 - 06.2024",
+    description: "Led GenAI stream of 3 developers for 6 months developing 5 GenAI applications. Co-developed patient-trial matching platform extracting health data from EHR. Built ETL pipeline for FHIR/HL7/OMOP medical data with NLP annotation using SNOMED/LOINC ontologies",
+    highlight: "5 GenAI Applications Deployed",
   },
   {
     id: 4,
-    title: "FileIT - File Sharing App",
-    description: "FileIT is a file sharing app that allows you to share files with your friends and family. It is a simple and easy to use app that allows you to share files with your friends and family.",
-    icon: "/cards/card-4.png",
+    title: "Research Assistant / PhD Candidate",
+    company: "ETHZ",
+    location: "Zürich",
+    period: "05.2018 - 04.2022",
+    description: "Developed a novel statistical approach for the extraction of protein correlated motion. Published four first-author papers in bioinformatics",
+    highlight: "PhD in Bioinformatics",
   },
 ];
 
@@ -46,34 +60,29 @@ export default function Experience(): React.JSX.Element {
           {experienceCards.map((card) => (
             <div
               key={card.id}
-              className="bg-gradient-to-r from-slate-950 via-purple-950 to-slate-950  backdrop-blur-sm rounded-xl p-6 border-t-3 border-purple-700 hover:shadow-2xl hover:shadow-purple-900 flex items-center gap-4"
+              className="bg-gradient-to-r from-slate-950 via-purple-950 to-slate-950 backdrop-blur-sm rounded-xl p-6 border-t-3 border-purple-700 hover:shadow-2xl hover:shadow-purple-900"
             >
-              <div className="mb-4 ">
-                <Image
-                  src={card.icon}
-                  alt={card.title}
-                  width={160}
-                  height={160}
-                  className="object-contain"
-                />
+              <div className="flex justify-between items-start mb-3">
+                <div>
+                  <h3 className="text-xl font-semibold text-white">
+                    {card.title}
+                  </h3>
+                  <p className="text-purple-400 text-sm font-medium">
+                    {card.company}
+                  </p>
+                </div>
+                {card.highlight && (
+                  <span className="text-xs bg-purple-900/50 text-purple-300 px-2 py-1 rounded-full whitespace-nowrap">
+                    {card.highlight}
+                  </span>
+                )}
               </div>
-              <div>
-              <h3 className="text-xl font-semibold text-white mb-2">
-                {card.title}
-              </h3>
-              <p className="text-white/70 text-sm mb-4">
+              <p className="text-white/50 text-xs mb-3">
+                {card.location} | {card.period}
+              </p>
+              <p className="text-white/70 text-sm">
                 {card.description}
               </p>
-              <Link
-                href="https://ibiimemon.com/lab"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-purple-400 hover:text-purple-300 font-medium text-sm transition-colors inline-block"
-              >
-                LEARN MORE →
-              </Link>
-              </div>
-
             </div>
           ))}
         </div>

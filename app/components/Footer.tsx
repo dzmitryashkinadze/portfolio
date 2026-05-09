@@ -3,44 +3,30 @@ import Image from "next/image";
 
 export default function Footer(): React.JSX.Element {
   return (
-    <footer id="contact" className="py-10  px-6 border-t border-white/10">
+    <footer id="contact" className="py-10 px-6 border-t border-white/10">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
             Contact
           </h2>
           <p className="text-md text-white/80 max-w-2xl mx-auto mb-8">
-            I&apos;m currently looking to join a cross-functional team that values 
-            improving people&apos;s lives through accessible design, or have a project 
-            in mind? Let&apos;s connect.
+            Interested in collaborating or have a project in mind? 
+            Let&apos;s connect.
           </p>
-          <a
-            href="mailto:ibii.code@gmail.com"
-            className="text-md text-purple-400 hover:text-purple-300 transition-colors"
-          >
-            ibii.code@gmail.com
-          </a>
+          <div className="flex flex-col items-center gap-2">
+            <a
+              href="mailto:dzmitry.ashkinadze@gmail.com"
+              className="text-md text-purple-400 hover:text-purple-300 transition-colors"
+            >
+              dzmitry.ashkinadze@gmail.com
+            </a>
+            <span className="text-white/50 text-sm">+41 76 794 2973</span>
+          </div>
         </div>
 
-        {/* Social Media Icons */}
         <div className="flex justify-center gap-6 mt-12">
           <Link
-            href="https://www.instagram.com/ibii.memon/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-purple-500/30 hover:border-purple-500/50 transition-all"
-            aria-label="Instagram"
-          >
-            <Image
-              src="/assets/insta.webp"
-              alt="Instagram"
-              width={20}
-              height={20}
-              className="w-5 h-5"
-            />
-          </Link>
-          <Link
-            href="https://github.com/ibrahimmemonn"
+            href="https://github.com/dzmitryashkinadze"
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-purple-500/30 hover:border-purple-500/50 transition-all"
@@ -55,7 +41,7 @@ export default function Footer(): React.JSX.Element {
             </svg>
           </Link>
           <Link
-            href="https://www.linkedin.com/in/ibrahimmemonn/"
+            href="https://linkedin.com/in/dzmitry-ashkinadze"
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-purple-500/30 hover:border-purple-500/50 transition-all"
@@ -73,7 +59,7 @@ export default function Footer(): React.JSX.Element {
 
         <div className="text-center mt-12 pt-8 border-t border-white/10">
           <p className="text-white/60 text-sm">
-            © {new Date().getFullYear()} Ibrahim Memon. All rights reserved.
+            © {new Date().getFullYear()} Dzmitry Ashkinadze. All rights reserved.
           </p>
         </div>
       </div>

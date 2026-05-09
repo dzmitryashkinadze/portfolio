@@ -4,31 +4,44 @@ interface Project {
   id: number;
   title: string;
   description: string;
-  image: string;
+  tech: string[];
   link?: string;
 }
 
 const featuredProjects: Project[] = [
   {
     id: 1,
-    title: "NeuraWeb – Futuristic AI Website Landing Design",
-    description: "A sleek, dark-themed AI-powered landing page concept built in Figma. Designed for modern startups and futuristic digital products, it features glowing neon visuals, immersive UI, and a dynamic tone. The design encapsulates the cutting-edge possibilities of AI and tech, offering a glimpse into the future of online experiences for tech-forward companies.",
-    link: "https://www.figma.com/community/file/1441377868897233703/ai-website-landing-design",
-    image: "/projects/project-1.png",
+    title: "GenAI Clinical Trial Platform",
+    description: "Agentic GenAI platform for structuring clinical trial protocols. Led team of 3 developers building the core AI infrastructure that automates protocol analysis and extraction for a large pharmaceutical company.",
+    tech: ["GenAI", "Python", "MLOps", "Healthcare"],
   },
   {
     id: 2,
-    title: "Apple Vision Pro – HR Software Design",
-    description: "A futuristic HR software concept designed for Apple Vision Pro, built in Figma to reimagine attendance, leave tracking, and employee experience - all in one immersive interface.",
-   link: "https://www.figma.com/community/file/1371824014208363481/apple-vision-pro-hr-software-design",
-    image: "/projects/project-2.png",
+    title: "Big Data Pipeline - 50M Profiles",
+    description: "Co-led development of big data pipeline that increased data completeness by 10% for over 50M scientific profiles on scilit.com. Built scalable ETL processing system handling massive academic metadata.",
+    tech: ["Python", "Spark", "ETL", "NLP"],
+  },
+  {
+    id: 3,
+    title: "Rust Pipeline Optimization",
+    description: "Rewrote external database dump processing pipeline in Rust achieving 1500x speedup - dropping runtime from 1 month to 30 minutes. Dramatically improved data processing efficiency for MDPI.",
+    tech: ["Rust", "Performance", "ETL"],
+  },
+  {
+    id: 4,
+    title: "Transformer Spam Detection",
+    description: "Developed and deployed transformer-based spam detection solution for sciprofiles.com that led to 3x reduction in spam volume. Improved platform content quality through ML-based filtering.",
+    tech: ["Transformers", "ML", "Python"],
   },
 ];
 
 export default function Projects(): React.JSX.Element {
   return (
-    <section id="lab" className="py-20 px-6">
+    <section id="projects" className="py-20 px-6">
       <div className="container mx-auto max-w-7xl">
+        <h2 className="text-4xl lg:text-5xl font-bold text-white mb-12 text-center">
+          Featured Projects
+        </h2>
         {featuredProjects.map((project, index) => {
           const isEven = index % 2 === 1;
           
@@ -37,64 +50,48 @@ export default function Projects(): React.JSX.Element {
               <div className={`relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center ${
                 isEven ? "lg:grid-flow-dense" : ""
               }`}>
-                {/* Text Content */}
                 <div className={`${isEven ? "lg:col-start-2" : ""}`}>
                   <p className="text-purple-400 text-lg lg:text-xl mb-2 font-medium">
-                    Featured Project
+                    Technical Project
                   </p>
                   <h3 className="text-3xl lg:text-4xl font-bold text-white mb-6">
                     {project.title}
                   </h3>
-                  {/* Description Card - extends over image */}
                   <div className="relative z-10 mb-6">
                     <div className={`bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md rounded-2xl p-6 lg:p-8 border border-white/10 shadow-lg ${
                       isEven ? "lg:ml-[-20%]" : "lg:w-[calc(100%+20%)]"
                     }`}>
-                      <p className="text-white/90 text-base lg:text-lg leading-relaxed">
+                      <p className="text-white/90 text-base lg:text-lg leading-relaxed mb-4">
                         {project.description}
                       </p>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tech.map((t, i) => (
+                          <span key={i} className="text-xs bg-purple-900/50 text-purple-300 px-2 py-1 rounded-full">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                  {/* Website link */}
                   {project.link && (
-                    <div className="flex gap-4">
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white hover:text-purple-400 transition-colors duration-200"
-                        aria-label="Visit project website"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="w-6 h-6"
-                        >
-                          <circle cx="12" cy="12" r="10" />
-                          <line x1="2" y1="12" x2="22" y2="12" />
-                          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                        </svg>
-                      </a>
-                    </div>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-purple-400 hover:text-purple-300 font-medium transition-colors"
+                    >
+                      View Project →
+                    </a>
                   )}
                 </div>
 
-                {/* Image Content */}
                 <div className={`${isEven ? "lg:col-start-1 lg:row-start-1" : ""}`}>
-                  <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-slate-950 p-2 lg:p-3 shadow-2xl">
-                    <div className="relative w-full h-full rounded-lg overflow-hidden">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-cover"
-                      />
+                  <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-slate-950 p-2 lg:p-3 shadow-2xl border border-purple-900/30">
+                    <div className="relative w-full h-full rounded-lg overflow-hidden bg-gradient-to-br from-slate-900 via-purple-950 to-slate-900 flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="text-6xl mb-2">⚡</div>
+                        <div className="text-purple-400 text-sm">{project.tech[0]}</div>
+                      </div>
                     </div>
                   </div>
                 </div>
