@@ -12,34 +12,33 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Ibrahim Memon - Software Engineer & UI/UX Designer",
-  description: "A self-taught UI/UX designer and Software Engineer at WebHR. Creating meaningful and delightful digital products that balance user needs and business goals. 3+ years of industry experience.",
+  title: "Dzmitry Ashkinadze - Senior Data Scientist | Dr. Sc. ETH",
+  description: "PhD in bioinformatics with 4+ years of industrial experience building ETL pipelines and scalable AI applications. Based in Basel, Switzerland.",
   keywords: [
-    "Ibrahim Memon",
-    "Software Engineer",
-    "UI/UX Designer",
-    "Frontend Developer",
-    "React Developer",
-    "Next.js Developer",
-    "Web Designer",
-    "WebHR Engineer",
+    "Dzmitry Ashkinadze",
+    "Data Scientist",
+    "NLP Engineer",
+    "GenAI",
+    "Machine Learning",
+    "ETL",
+    "Bioinformatics",
     "Portfolio",
   ],
-  authors: [{ name: "Ibrahim Memon" }],
-  creator: "Ibrahim Memon",
-  publisher: "Ibrahim Memon",
+  authors: [{ name: "Dzmitry Ashkinadze" }],
+  creator: "Dzmitry Ashkinadze",
+  publisher: "Dzmitry Ashkinadze",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://ibiimemon.com",
-    title: "Ibrahim Memon - Software Engineer & UI/UX Designer",
-    description: "A self-taught UI/UX designer and Software Engineer at WebHR. Creating meaningful and delightful digital products.",
-    siteName: "Ibrahim Memon Portfolio",
+    url: "https://ashkinadze.org",
+    title: "Dzmitry Ashkinadze - Senior Data Scientist",
+    description: "PhD in bioinformatics with 4+ years experience building ETL pipelines and scalable AI applications.",
+    siteName: "Dzmitry Ashkinadze Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ibrahim Memon - Software Engineer & UI/UX Designer",
-    description: "A self-taught UI/UX designer and Software Engineer at WebHR.",
+    title: "Dzmitry Ashkinadze - Senior Data Scientist",
+    description: "PhD in bioinformatics building ETL pipelines and scalable AI applications.",
   },
   robots: {
     index: true,
@@ -68,7 +67,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="canonical" href="https://ibiimemon.com" />
+        <link rel="canonical" href="https://ashkinadze.org" />
       </head>
       <body
         className={`${poppins.variable} font-sans antialiased`}
